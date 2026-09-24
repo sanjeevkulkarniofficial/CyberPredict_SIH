@@ -1,0 +1,22 @@
+/* CyberPredict Custom Animations and Utility Extensions */
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px -3px rgba(99, 102, 241, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 25px 2px rgba(99, 102, 241, 0.4);
+  }
+}
+
+.pulse-glow-hover:hover {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Micro-interaction for all interactive buttons */
+.interactive-tap {
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s ease;
+}
+.interactive-tap:active {
+  transform: scale(0.97);
+}

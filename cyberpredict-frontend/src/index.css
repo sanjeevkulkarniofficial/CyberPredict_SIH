@@ -1,0 +1,724 @@
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --background: #F8FAFC;
+  --surface: #FFFFFF;
+  --surface-subtle: #F1F5F9;
+  --primary: #2563EB;
+  --primary-dark: #1D4ED8;
+  --secondary: #4F46E5;
+  --accent: #0284C7;
+  --text-primary: #000000;
+  --text-secondary: #0F172A;
+  --border: #E2E8F0;
+  --success: #16A34A;
+  --warning: #D97706;
+  --danger: #DC2626;
+  /* Futuristic enhancements */
+  --glow-indigo: rgba(79, 70, 229, 0.12);
+  --glow-cyan: rgba(6, 182, 212, 0.10);
+  --glass-blur: 16px;
+}
+
+@layer base {
+  *, *::before, *::after {
+    font-family: 'Times New Roman', Times, serif !important;
+  }
+  html, body, button, input, select, textarea, h1, h2, h3, h4, h5, h6, p, span, div, a, label, li, td, th, dt, dd, b, strong, em, i, small {
+    font-family: 'Times New Roman', Times, serif !important;
+  }
+  html {
+    font-size: 18px;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-slate-50 text-slate-950 antialiased selection:bg-indigo-600 selection:text-white;
+    font-family: 'Times New Roman', Times, serif !important;
+    font-size: 1rem;
+    font-weight: 600 !important;
+    line-height: 1.55;
+    letter-spacing: 0.005em;
+    color: #000000;
+    background-color: var(--background);
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.035) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.03) 0px, transparent 50%),
+      radial-gradient(at 50% 100%, rgba(16, 185, 129, 0.02) 0px, transparent 50%),
+      radial-gradient(#e2e8f0 0.75px, transparent 0.75px);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 24px 24px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+    font-weight: 700 !important;
+    color: #000000 !important;
+    font-family: 'Times New Roman', Times, serif !important;
+    letter-spacing: -0.01em;
+  }
+
+  strong, b {
+    font-weight: 700 !important;
+    color: #000000 !important;
+  }
+
+  p, li, dl, dt, dd, a, span {
+    color: #090d16;
+    font-weight: 600 !important;
+    font-family: 'Times New Roman', Times, serif !important;
+  }
+
+  label {
+    color: #020617 !important;
+    font-weight: 700 !important;
+    font-family: 'Times New Roman', Times, serif !important;
+    letter-spacing: 0.01em;
+  }
+
+  button {
+    font-weight: 700 !important;
+    font-family: 'Times New Roman', Times, serif !important;
+  }
+
+  input, select, textarea {
+    color: #000000 !important;
+    font-weight: 600 !important;
+    font-family: 'Times New Roman', Times, serif !important;
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: #475569 !important;
+    font-weight: 600 !important;
+    opacity: 0.85 !important;
+  }
+
+  /* Override Tailwind font-weight utilities so every single text element stays bold & neat */
+  .font-thin, .font-extralight, .font-light, .font-normal, .font-medium {
+    font-weight: 600 !important;
+  }
+  .font-semibold, .font-bold, .font-extrabold, .font-black {
+    font-weight: 700 !important;
+  }
+
+  /* Universal High-Contrast Dark Text Overrides for Clean Readability on White Background */
+  .text-slate-400, .text-gray-400, .text-zinc-400, .text-neutral-400 {
+    color: #1e293b !important; /* Deep, crisp slate-800 instead of washed-out gray */
+  }
+  .text-slate-500, .text-gray-500, .text-zinc-500, .text-neutral-500 {
+    color: #0f172a !important; /* Rich ink slate-900 */
+  }
+  .text-slate-600, .text-gray-600, .text-zinc-600, .text-neutral-600 {
+    color: #090d16 !important; /* Deepest ink black */
+  }
+  .text-slate-700, .text-gray-700, .text-zinc-700, .text-neutral-700,
+  .text-slate-800, .text-gray-800, .text-zinc-800, .text-neutral-800,
+  .text-slate-900, .text-gray-900, .text-zinc-900, .text-neutral-900,
+  .text-slate-950, .text-gray-950, .text-zinc-950, .text-neutral-950 {
+    color: #000000 !important; /* Solid pure black */
+  }
+
+  /* Scale arbitrary small px text classes so Times New Roman remains clearly visible & neat */
+  [class*="text-[8px]"],
+  [class*="text-[9px]"] {
+    font-size: 0.72rem !important; /* ~13px */
+    line-height: 1.25 !important;
+    font-weight: 700 !important;
+  }
+  [class*="text-[10px]"] {
+    font-size: 0.78rem !important; /* ~14px */
+    line-height: 1.3 !important;
+    font-weight: 700 !important;
+  }
+  [class*="text-[11px]"] {
+    font-size: 0.83rem !important; /* ~15px */
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+  }
+  [class*="text-[12px]"] {
+    font-size: 0.88rem !important; /* ~15.8px */
+    line-height: 1.4 !important;
+    font-weight: 700 !important;
+  }
+
+  th {
+    color: #000000 !important;
+    font-weight: 700 !important;
+    font-family: 'Times New Roman', Times, serif !important;
+    letter-spacing: 0.01em;
+  }
+  td {
+    color: #0f172a !important;
+    font-weight: 600 !important;
+    font-family: 'Times New Roman', Times, serif !important;
+  }
+
+  /* Smooth focus rings for all interactive elements */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-indigo-500/30 ring-offset-2 ring-offset-white;
+    transition: box-shadow 0.2s ease;
+  }
+}
+
+/* ==========================================================================
+   PREMIUM LIGHT CYBER CARD SYSTEM
+   ========================================================================== */
+.cyber-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 
+    0 1px 2px 0 rgba(15, 23, 42, 0.03),
+    0 4px 12px -2px rgba(15, 23, 42, 0.03);
+  border-radius: 1rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.cyber-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 
+    0 8px 24px -4px rgba(15, 23, 42, 0.06),
+    0 2px 4px -1px rgba(0, 0, 0, 0.02);
+}
+
+.cyber-card-active {
+  background: #ffffff;
+  border-color: #4f46e5;
+  box-shadow: 
+    0 0 0 3px rgba(79, 70, 229, 0.1),
+    0 6px 16px -3px rgba(79, 70, 229, 0.12);
+}
+
+.cyber-pill {
+  @apply px-2 py-0.5 rounded-lg text-xs font-mono font-medium border transition-all;
+}
+
+/* ==========================================================================
+   PROFESSIONAL MODERN BUTTONS (Proportional, Sleek, Not Bulky)
+   ========================================================================== */
+.btn-cyber-primary, .btn-primary {
+  @apply relative inline-flex items-center justify-center font-heading font-semibold text-white rounded-lg transition-all duration-150 cursor-pointer text-xs px-3.5 py-2 shadow-sm overflow-hidden;
+  background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+}
+.btn-cyber-primary:hover, .btn-primary:hover {
+  background: linear-gradient(135deg, #4338ca 0%, #2563eb 100%);
+  box-shadow: 0 4px 12px -2px rgba(79, 70, 229, 0.3);
+  transform: translateY(-0.5px);
+}
+.btn-cyber-primary:active, .btn-primary:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 1px 3px 0 rgba(79, 70, 229, 0.2);
+}
+
+.btn-secondary {
+  @apply relative inline-flex items-center justify-center font-heading font-semibold text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 hover:border-slate-300 rounded-lg transition-all duration-150 cursor-pointer shadow-sm hover:shadow text-xs px-3.5 py-2;
+}
+.btn-secondary:hover {
+  transform: translateY(-0.5px);
+}
+.btn-secondary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-cyber-emerald, .btn-success {
+  @apply relative inline-flex items-center justify-center font-heading font-semibold text-white rounded-lg transition-all duration-150 cursor-pointer text-xs px-3.5 py-2 shadow-sm overflow-hidden;
+  background: linear-gradient(135deg, #059669 0%, #0d9488 100%);
+}
+.btn-cyber-emerald:hover, .btn-success:hover {
+  background: linear-gradient(135deg, #047857 0%, #0f766e 100%);
+  box-shadow: 0 4px 12px -2px rgba(16, 185, 129, 0.3);
+  transform: translateY(-0.5px);
+}
+.btn-cyber-emerald:active, .btn-success:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-cyber-rose, .btn-danger {
+  @apply relative inline-flex items-center justify-center font-heading font-semibold text-white rounded-lg transition-all duration-150 cursor-pointer text-xs px-3.5 py-2 shadow-sm overflow-hidden;
+  background: linear-gradient(135deg, #e11d48 0%, #dc2626 100%);
+}
+.btn-cyber-rose:hover, .btn-danger:hover {
+  background: linear-gradient(135deg, #be123c 0%, #b91c1c 100%);
+  box-shadow: 0 4px 12px -2px rgba(225, 29, 72, 0.3);
+  transform: translateY(-0.5px);
+}
+.btn-cyber-rose:active, .btn-danger:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-cyber-amber, .btn-warning {
+  @apply relative inline-flex items-center justify-center font-heading font-semibold text-white rounded-lg transition-all duration-150 cursor-pointer text-xs px-3.5 py-2 shadow-sm overflow-hidden;
+  background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+}
+.btn-cyber-amber:hover, .btn-warning:hover {
+  background: linear-gradient(135deg, #b45309 0%, #d97706 100%);
+  box-shadow: 0 4px 12px -2px rgba(217, 119, 6, 0.3);
+  transform: translateY(-0.5px);
+}
+.btn-cyber-amber:active, .btn-warning:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-cyber-violet {
+  @apply relative inline-flex items-center justify-center font-heading font-semibold text-white rounded-lg transition-all duration-150 cursor-pointer text-xs px-3.5 py-2 shadow-sm overflow-hidden;
+  background: linear-gradient(135deg, #7c3aed 0%, #6366f1 100%);
+}
+.btn-cyber-violet:hover {
+  background: linear-gradient(135deg, #6d28d9 0%, #4f46e5 100%);
+  box-shadow: 0 4px 12px -2px rgba(124, 58, 237, 0.3);
+  transform: translateY(-0.5px);
+}
+.btn-cyber-violet:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-ghost {
+  @apply relative inline-flex items-center justify-center font-heading font-semibold text-slate-600 hover:text-slate-900 bg-transparent hover:bg-slate-100/80 rounded-lg transition-all duration-150 cursor-pointer text-xs px-3 py-1.5;
+}
+.btn-ghost:active {
+  transform: scale(0.98);
+}
+
+
+/* ==========================================================================
+   FUTURISTIC ANIMATED GRADIENT BORDER ACCENT (for hero / key cards)
+   ========================================================================== */
+.gradient-border-glow {
+  position: relative;
+}
+.gradient-border-glow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(135deg, #4f46e5, #06b6d4, #4f46e5, #06b6d4);
+  background-size: 300% 300%;
+  animation: borderShift 6s ease infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+.gradient-border-glow:hover::before {
+  opacity: 0.8;
+}
+
+@keyframes borderShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ==========================================================================
+   GRADIENT TEXT UTILITY
+   ========================================================================== */
+.text-gradient-primary {
+  background: linear-gradient(135deg, #4f46e5 0%, #2563eb 50%, #0891b2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ==========================================================================
+   GLASSMORPHISM SURFACE VARIANTS
+   ========================================================================== */
+.glass-surface {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px) saturate(1.8);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  border: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+.glass-surface-dense {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  border: 1px solid rgba(226, 232, 240, 0.75);
+}
+
+/* ==========================================================================
+   SKELETON LOADING SHIMMER
+   ========================================================================== */
+.skeleton-shimmer {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #f1f5f9 0%, #e2e8f0 40%, #f1f5f9 60%, #f1f5f9 100%);
+  background-size: 300% 100%;
+  animation: skeletonPulse 1.8s ease infinite;
+  border-radius: 0.75rem;
+}
+
+@keyframes skeletonPulse {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* ==========================================================================
+   TACTICAL HUD CORNER CROSSHAIRS (Refined)
+   ========================================================================== */
+.hud-corner-tl {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 14px;
+  height: 14px;
+  border-top: 2px solid rgba(99, 102, 241, 0.7);
+  border-left: 2px solid rgba(99, 102, 241, 0.7);
+  pointer-events: none;
+  transition: border-color 0.3s ease;
+}
+.hud-corner-tr {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 14px;
+  height: 14px;
+  border-top: 2px solid rgba(99, 102, 241, 0.7);
+  border-right: 2px solid rgba(99, 102, 241, 0.7);
+  pointer-events: none;
+  transition: border-color 0.3s ease;
+}
+.hud-corner-bl {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  width: 14px;
+  height: 14px;
+  border-bottom: 2px solid rgba(99, 102, 241, 0.7);
+  border-left: 2px solid rgba(99, 102, 241, 0.7);
+  pointer-events: none;
+  transition: border-color 0.3s ease;
+}
+.hud-corner-br {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 14px;
+  height: 14px;
+  border-bottom: 2px solid rgba(99, 102, 241, 0.7);
+  border-right: 2px solid rgba(99, 102, 241, 0.7);
+  pointer-events: none;
+  transition: border-color 0.3s ease;
+}
+
+/* Animate corners on parent hover */
+*:hover > .hud-corner-tl,
+*:hover > .hud-corner-tr,
+*:hover > .hud-corner-bl,
+*:hover > .hud-corner-br {
+  border-color: rgba(99, 102, 241, 1);
+}
+
+/* ==========================================================================
+   RADAR SWEEP + DATA PULSE ANIMATIONS
+   ========================================================================== */
+.radar-sweep-cone {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: conic-gradient(from 0deg, transparent 0deg, transparent 270deg, rgba(99, 102, 241, 0.2) 360deg);
+  animation: radarSweep 4s linear infinite;
+  pointer-events: none;
+}
+
+/* Data pulse ring — expandable sonar circle */
+.data-pulse-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 2px solid rgba(99, 102, 241, 0.3);
+  animation: dataPulse 2.5s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes dataPulse {
+  0% { transform: scale(0.8); opacity: 0.6; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* ==========================================================================
+   ANIMATED SOUNDWAVE EQUALIZER BARS
+   ========================================================================== */
+@keyframes soundwave {
+  0%, 100% { height: 6px; }
+  50% { height: 28px; }
+}
+.wave-bar-1 { animation: soundwave 0.8s ease-in-out infinite 0.1s; }
+.wave-bar-2 { animation: soundwave 0.7s ease-in-out infinite 0.3s; }
+.wave-bar-3 { animation: soundwave 0.9s ease-in-out infinite 0.15s; }
+.wave-bar-4 { animation: soundwave 0.6s ease-in-out infinite 0.4s; }
+.wave-bar-5 { animation: soundwave 0.85s ease-in-out infinite 0.25s; }
+.wave-bar-6 { animation: soundwave 0.75s ease-in-out infinite 0.35s; }
+.wave-bar-7 { animation: soundwave 0.65s ease-in-out infinite 0.2s; }
+
+/* ==========================================================================
+   SMOOTH ENTRANCE ANIMATIONS
+   ========================================================================== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Stagger utility — apply delay classes */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+
+/* ==========================================================================
+   FUTURISTIC INPUT FIELD STYLING
+   ========================================================================== */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="number"],
+select,
+textarea {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #4f46e5 !important;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* ==========================================================================
+   TABLE ROW HOVER ENHANCEMENT
+   ========================================================================== */
+tbody tr {
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+tbody tr:hover {
+  background-color: rgba(248, 250, 252, 0.9) !important;
+  box-shadow: inset 3px 0 0 0 #4f46e5;
+}
+
+/* ==========================================================================
+   PROGRESS BAR GLOW
+   ========================================================================== */
+.progress-bar-glow {
+  position: relative;
+}
+.progress-bar-glow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4));
+  border-radius: inherit;
+  animation: progressGlow 2s ease infinite;
+}
+
+@keyframes progressGlow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+/* ==========================================================================
+   CUSTOM SLEEK LIGHT SCROLLBARS
+   ========================================================================== */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+/* ==========================================================================
+   LEAFLET MAP STYLING
+   ========================================================================== */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 1.25rem;
+  z-index: 10;
+  font-family: inherit;
+}
+
+.leaflet-popup-content-wrapper {
+  background: rgba(255, 255, 255, 0.96) !important;
+  color: #0f172a !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(226, 232, 240, 0.9) !important;
+  border: 1px solid #e2e8f0 !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+.leaflet-popup-tip {
+  background: rgba(255, 255, 255, 0.96) !important;
+}
+
+/* ==========================================================================
+   BADGE PULSE KEYFRAME (for live status indicators)
+   ========================================================================== */
+@keyframes statusPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+}
+
+.status-dot-live {
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   FLOATING PARTICLE ACCENTS (for hero sections via JS)
+   ========================================================================== */
+@keyframes float-particle {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+  25% { transform: translateY(-8px) rotate(90deg); opacity: 0.6; }
+  50% { transform: translateY(-4px) rotate(180deg); opacity: 0.4; }
+  75% { transform: translateY(-12px) rotate(270deg); opacity: 0.5; }
+}
+
+/* ==========================================================================
+   COUNTER ANIMATION (for KPI numbers — JS adds .counted class)
+   ========================================================================== */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.kpi-value {
+  animation: countUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ==========================================================================
+   TOOLTIP UTILITY
+   ========================================================================== */
+[data-tooltip] {
+  position: relative;
+}
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%) scale(0.95);
+  padding: 4px 10px;
+  font-size: 15px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 600;
+  color: white;
+  background: #1e293b;
+  border-radius: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 50;
+}
+[data-tooltip]:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+/* ==========================================================================
+   DARK GUIDE POPOVERS & TOOLTIPS (FORCED CRISP WHITE TEXT)
+   ========================================================================== */
+.dark-guide-popover,
+.dark-guide-popover *,
+.dark-guide-popover p,
+.dark-guide-popover span,
+.dark-guide-popover strong,
+.dark-guide-popover b,
+.dark-guide-popover li,
+.dark-guide-popover ul,
+.dark-guide-popover div,
+.dark-guide-popover em,
+.dark-guide-popover i {
+  color: #ffffff !important;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+.dark-guide-popover strong,
+.dark-guide-popover b {
+  font-weight: 700 !important;
+}
+
+.dark-guide-popover .text-rose-300,
+.dark-guide-popover .text-rose-400,
+.dark-guide-popover [class*="text-rose-"] {
+  color: #fda4af !important;
+}
+
+.dark-guide-popover .text-amber-300,
+.dark-guide-popover .text-amber-400,
+.dark-guide-popover [class*="text-amber-"] {
+  color: #fcd34d !important;
+}
+
+.dark-guide-popover .text-cyan-300,
+.dark-guide-popover .text-cyan-400,
+.dark-guide-popover [class*="text-cyan-"] {
+  color: #67e8f9 !important;
+}
+
+.dark-guide-popover .text-purple-300,
+.dark-guide-popover .text-purple-400,
+.dark-guide-popover [class*="text-purple-"] {
+  color: #d8b4fe !important;
+}
+
+.dark-guide-popover .text-emerald-300,
+.dark-guide-popover .text-emerald-400,
+.dark-guide-popover [class*="text-emerald-"] {
+  color: #6ee7b7 !important;
+}
+
+.dark-guide-popover .text-slate-200,
+.dark-guide-popover .text-slate-300,
+.dark-guide-popover .text-slate-400 {
+  color: #cbd5e1 !important;
+}
