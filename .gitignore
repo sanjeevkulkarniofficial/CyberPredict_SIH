@@ -1,36 +1,59 @@
-# Python & Virtual Environments
+# Python Virtual Environments
 venv/
 .venv/
 env/
+ENV/
+env.bak/
+venv.bak/
+
+# Byte-compiled / Optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 *.dll
 *.dylib
+*.egg
 *.egg-info/
 dist/
 build/
+eggs/
+parts/
+bin/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
 
-# Django Databases & Logs
+# Django Database & Local Runtime Data
 db.sqlite3
 db.sqlite3-journal
 *.log
 
-# Node & Frontend
+# Node & Frontend Build Artifacts
 node_modules/
 **/node_modules/
 cyberpredict-frontend/node_modules/
 cyberpredict-frontend/dist/
 cyberpredict-frontend/.env.local
+.vite/
+.npm/
 
-# Environment Variables
+# Environment Variables & Sensitive Keys (Keep examples only)
 .env
 .env.*
 !.env.example
+*.pem
+*.key
+*.cert
 
-# IDE & OS Metadata
+# Editor & OS Metadata
 .vscode/
 .idea/
+*.sublime-project
+*.sublime-workspace
 .DS_Store
 Thumbs.db
+Desktop.ini
